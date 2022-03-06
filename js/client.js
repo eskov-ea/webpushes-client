@@ -20,7 +20,7 @@ subscribe.addEventListener('click', async function (e) {
         subscription
     }
     console.log('subscription   --> ', subscription);
-    await fetch('https://141.8.193.204//subscribe/', {
+    await fetch('https://141.8.193.204/subscribe/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -47,7 +47,7 @@ const urlBase64ToUint8Array = function(base64String) {
 };
 
 const getUsers = async () => {
-    const res = await fetch('https://141.8.193.204//users', {
+    const res = await fetch('https:/141.8.193.204//users', {
         method: 'GET',
         credentials: 'include',
         mode: 'cors',
