@@ -2,17 +2,19 @@ const route = (event) => {
     event = event || window.event;
     event.preventDefault();
     window.history.pushState({}, "", event.target.href);
+    handleLocation();
 };
 
 const routes = {
     "/": "/home.html",
     "/login": "/login.html",
-    "/register": "/registration.html",
+    "/registration": "/registration.html",
     404: "/404.html"
 };
 
 const handleLocation = async () => {
     const path = window.location.pathname;
+    console.log(path);
     const route = routes[path] || routes[404];
     const html = await fetch(route).then(data => data.text());
     document.querySelector('#root').innerHTML = html;
@@ -20,3 +22,5 @@ const handleLocation = async () => {
 
 window.onpopstate = handleLocation;
 window.route = route;
+
+handleLocation();
