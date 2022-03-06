@@ -9,6 +9,7 @@ const subscribeFunc = async (e) => {
      * check scope in prod mode
      * @type {ServiceWorkerRegistration}
      */
+    const usersContainer = document.querySelector('#users_container');
     const registration = await navigator.serviceWorker.register('js/serviceWorker.js', {scope: '/js/'});
     console.log('registration   --> ', registration);
     const subscription = await registration.pushManager.subscribe({
