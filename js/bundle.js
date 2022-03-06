@@ -101,10 +101,9 @@ const chooseUser = (e) => {
  * login part
  */
 const loginFunc = async (e) => {
-    e.preventDefault();
     const username = document.querySelector('#loginInput').value;
     const password = document.querySelector('#passwordInput').value;
-    const url = 'https://141.8.193.204/login';
+    const url = 'https://web-notifications.ru/login';
     const res = await fetch(url, {
         method: 'POST',
         headers: {
@@ -129,10 +128,9 @@ const loginFunc = async (e) => {
  * register part
  */
 const registerFunc = async (e) => {
-    e.preventDefault();
     const username = document.querySelector('#loginInput').value;
     const password = document.querySelector('#passwordInput').value;
-    const url = 'https://141.8.193.204/registration';
+    const url = 'https://web-notifications.ru/registration';
     const res = await fetch(url, {
         method: 'POST',
         headers: {
@@ -150,7 +148,7 @@ const registerFunc = async (e) => {
     }
 };
 
-const fakeLoad = setTimeout(() => {
+const fakeLoad = () => setTimeout(() => {
     getUsers()
 }, 1000);
 document.addEventListener("DOMContentLoaded", fakeLoad);
