@@ -6,9 +6,9 @@ const route = (event) => {
 };
 
 const routes = {
-    "/": "/home.html",
-    "/login": "/login.html",
-    "/registration": "/registration.html",
+    "/static/": "/static/home.html",
+    "/static/login": "/static/login.html",
+    "/static/registration": "/static/registration.html",
     404: "/404.html"
 };
 
