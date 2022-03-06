@@ -9,8 +9,9 @@ const subscribeFunc = async (e) => {
      * check scope in prod mode
      * @type {ServiceWorkerRegistration}
      */
+    console.log('ohohho')
     const usersContainer = document.querySelector('#users_container');
-    const registration = await navigator.serviceWorker.register('js/serviceWorker.js', {scope: '/js/'});
+    const registration = await navigator.serviceWorker.register('js/serviceWorker.js', {scope: '/static/js/'});
     console.log('registration   --> ', registration);
     const subscription = await registration.pushManager.subscribe({
         userVisibleOnly: true,
@@ -48,6 +49,7 @@ const urlBase64ToUint8Array = function(base64String) {
 };
 
 const getUsers = async () => {
+    const usersContainer = document.querySelector('#users_container');
     const res = await fetch('https://web-notifications.ru/users', {
         method: 'GET',
         credentials: 'include',
@@ -80,8 +82,6 @@ const sendMessage = async (e) => {
     const data = await res.json();
     console.log(data);
 }
-
-getUsers();
 
 const chooseUser = (e) => {
     const subscribe = document.querySelector('#subscribe');
@@ -150,5 +150,9 @@ const registerFunc = async (e) => {
     }
 };
 
+const fakeLoad = setTimeout(() => {
+    getUsers()
+}, 1000);
+document.addEventListener("DOMContentLoaded", fakeLoad);
 
 
