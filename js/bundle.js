@@ -9,7 +9,6 @@ const subscribeFunc = async (e) => {
      * check scope in prod mode
      * @type {ServiceWorkerRegistration}
      */
-    console.log('ohohho')
     const usersContainer = document.querySelector('#users_container');
     const registration = await navigator.serviceWorker.register('js/serviceWorker.js', {scope: '/static/js/'});
     console.log('registration   --> ', registration);
@@ -118,7 +117,7 @@ const loginFunc = async (e) => {
         const Storage = window.localStorage;
         Storage.userId = response.user.id;
         Storage.login = response.user.username;
-        window.location.href = '../home.html';
+        window.location.href = '/';
     } else {
         console.log('something wrong')
     }
