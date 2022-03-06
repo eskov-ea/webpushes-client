@@ -117,7 +117,7 @@ const loginFunc = async (e) => {
         const Storage = window.localStorage;
         Storage.userId = response.user.id;
         Storage.login = response.user.username;
-        window.location.href = '/';
+        window.location.href = '/static/';
     } else {
         console.log('something wrong')
     }
